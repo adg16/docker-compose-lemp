@@ -1,1 +1,1 @@
-# docker-centos-nginx-php-mysql
+# docker-compose-lemp
