@@ -1,3 +1,7 @@
 #Exclude nginx logs
 services/nginx/logs/*
 !services/nginx/logs/.gitkeep
+
+#Exclude mysql data
+services/mysql-8/data/*
+!services/mysql-8/data/.gitkeep

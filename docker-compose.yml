@@ -23,3 +23,18 @@ services:
             context: ./services/php-fpm-7.4
         volumes:
             - ${SRC}:/var/www
+        depends_on:
+            - mysql_8
+
+    #MySql 8 Service
+    mysql_8:
+        build:
+            context: ./services/mysql-8
+        ports:
+            - 3306:3306
+        volumes: 
+            - ./services/mysql-8/my.cnf:/etc/mysql/conf.d/my.cnf
+            - ./services/mysql-8/data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: pass123
+            MYSQL_DATABASE: demo
