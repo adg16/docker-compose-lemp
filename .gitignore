@@ -1,0 +1,3 @@
+#Exclude nginx logs
+services/nginx/logs/*
+!services/nginx/logs/.gitkeep

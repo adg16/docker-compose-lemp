@@ -1,0 +1,25 @@
+version: '3.8'
+
+#Sevices
+services:
+
+    #Nginx Service
+    nginx:
+        build: 
+            context: ./services/nginx
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ${SRC}:/var/www
+            - ./services/nginx/sites:/etc/nginx/conf.d
+            - ./services/nginx/logs:/var/log/nginx
+        depends_on:
+            - php_fpm_7_4
+    
+    #PHP 7.4 Service
+    php_fpm_7_4:
+        build:
+            context: ./services/php-fpm-7.4
+        volumes:
+            - ${SRC}:/var/www
